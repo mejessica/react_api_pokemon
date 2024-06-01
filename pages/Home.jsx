@@ -8,6 +8,7 @@ import { useNavigate, useParams } from "react-router-dom";
 
 export default function Home({ setPokemonData }) {
     const [pokemons, setPokemons] = useState([])
+    const [offset, setOffset] = useState(0)
 
     const navigate = useNavigate()
 
@@ -15,13 +16,17 @@ export default function Home({ setPokemonData }) {
         getPokemons()
     }, [])
 
-    const getPokemons = () => {
+    const getPokemons = (newOffset = 0) => {
+        const limit = 20
         let endpoints = []
-        for (let i = 1; i < 20; i++) {
+        for (let i = newOffset + 1; i < newOffset + limit; i++) {
             endpoints.push(`https://pokeapi.co/api/v2/pokemon/${i}/`)
         }
         const response = axios.all(endpoints.map((endpoint) => axios.get(endpoint)))
-            .then((res) => setPokemons(res))
+            .then((res) => {
+                setPokemons((prevPokemons) => [...prevPokemons, ...res]);
+                setOffset(newOffset + limit)
+            })
             .catch((err) => console.log(err))
 
         return response
@@ -47,7 +52,7 @@ export default function Home({ setPokemonData }) {
     };
 
     const randomMore = () =>{
-        setPokemons()
+       getPokemons(offset)
     }
 
     return (
@@ -57,7 +62,7 @@ export default function Home({ setPokemonData }) {
                 <Card name={pokemon.data.name} image={pokemon.data.sprites.front_default} key={key} type={pokemon.data.types} onClick={() => handleClick(pokemon.data)} />
             ))}
             <div className="button">
-            <button className="carregar" onClick={() => randomMore()}>More pokemons</button>
+            <button className="carregar" onClick={randomMore}>More pokemons</button>
             </div>
         </>
     )
