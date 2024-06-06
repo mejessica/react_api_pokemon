@@ -24,12 +24,14 @@
     width: 80%;
     max-width: 800px;
     margin-bottom: 100px;
+    align-items: flex-start;
 }
 
 .profile-image {
     width: 30%;
     height: 30%;
     margin-right: 20px;
+    
 }
 
 .profile-details {
@@ -79,10 +81,27 @@
     margin-left: 3rem;
 }
 
-.variacoes h4{
+h4{
     text-align: center;
     margin-bottom: 10px;
 }
+
+.moves{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.moves p {
+    padding: 5px;
+    margin: 3px;
+    font-size: 15px;
+    background-color: #ddd;
+    border-radius: 15px;    
+}
+
+
 
 @media (max-width: 500px){
     .profile-card{

@@ -6,7 +6,8 @@ import { typesPokemons } from "../src/utils/handle";
 import { useNavigate } from "react-router-dom";
 
 export default function Profile({ pokemonData }) {
-    // const [pokemon, setPokemon] = useState([])
+    const [pokemon, setPokemon] = useState([])
+    console.log(pokemonData)
     
     console.log(pokemonData)
     const { name, types } = pokemonData || {}
@@ -23,8 +24,8 @@ export default function Profile({ pokemonData }) {
         return null
     }
 
-    // const getPokemon = () => {
-    //    const response = axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemonData.name}`)
+    // const getMoves = () => {
+    //    const response = axios.get(`https://pokeapi.co/api/ability/${pokemonData}`)
     //    .then((res) => setPokemon(res))
     //    .catch((err) => console.log(err))
 
@@ -72,6 +73,13 @@ export default function Profile({ pokemonData }) {
                         <img className="varicacoes-image" src={pokemonData.sprites.front_shiny} alt={pokemonData.sprites.front_shiny} />
                         <img className="varicacoes-image" src={pokemonData.sprites.front_shiny_female} alt={pokemonData.sprites.front_shiny_female} />
                         </div>
+                        
+                        <h4>Movimentos</h4>
+                        <div className="moves">
+                            {pokemonData.moves.map((move, index)=>(
+                                <p key={index}>{move.move.name}</p>
+                            ))}
+                        </div>  
                     </div>
 
                 </div>
