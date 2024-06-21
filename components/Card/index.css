@@ -1,17 +1,8 @@
 /* Estilo básico do cartão */
 
-.card {
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    width: 200px; /* Largura máxima do cartão */
-    margin: 20px auto; /* Centraliza o cartão horizontalmente */
-    background-color: white;
-    display: inline-block;
-    margin-left: 6rem;
-    transition: transform 0.5s;
-}
+/* .card {
+    
+} */
 
 
 .card:hover{

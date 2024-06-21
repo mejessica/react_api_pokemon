@@ -7,31 +7,40 @@ import { useNavigate } from "react-router-dom";
 
 export default function Profile({ pokemonData }) {
     const [pokemon, setPokemon] = useState([])
-    console.log(pokemonData)
-    
-    console.log(pokemonData)
+    console.log(pokemon)
+
     const { name, types } = pokemonData || {}
 
     const navigate = useNavigate()
 
-    useEffect(()=>{
-        if(!pokemonData){
+    useEffect(() => {
+        if (!pokemonData) {
             navigate('/')
+            return
         }
+
+        const getAbility = async () => {
+            const pokemon = []
+            const abilities = pokemonData.abilities.map((ability) => ability.ability.name)
+            for (const ability of abilities) {
+                const response = await axios.get(`https://pokeapi.co/api/v2/ability/${ability}`);
+                console.log(response)
+                const description = response.data.flavor_text_entries;
+                // pokemon.push(description);
+                pokemon.push(response)
+            }
+
+            // console.log(pokemon)
+            setPokemon(pokemon)
+        };
+
+        getAbility()
+
     }, [])
 
-    if(!pokemonData){
+    if (!pokemonData) {
         return null
     }
-
-    // const getMoves = () => {
-    //    const response = axios.get(`https://pokeapi.co/api/ability/${pokemonData}`)
-    //    .then((res) => setPokemon(res))
-    //    .catch((err) => console.log(err))
-
-    //    return response
-    // }
-
 
     return (
         <>
@@ -60,26 +69,35 @@ export default function Profile({ pokemonData }) {
                                     <td></td>
                                     <td colSpan="2">{typesPokemons(types)}</td>
                                 </tr>
-                                <tr>
+                                {/* <tr>
                                     <th scope="row"><strong>Abilities:</strong></th>
                                     <td></td>
                                     <td colSpan="2"> {pokemonData.abilities.map((ability) => ability.ability.name).join(", ")} </td>
+                                </tr> */}
+                                <tr>
+                                    <th scope="row"><strong>Abilities:</strong></th>
+                                    <td></td>
+                                    <td colSpan="4">
+                                        {pokemon.map((description, index) => (
+                                            <li key={index}>{description.data.name} - {description.data.flavor_text_entries[0].flavor_text}</li>
+                                        ))}
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
                         <div className="variacoes">
-                        <h4>Variações</h4>
-                        <img className="varicacoes-image" src={pokemonData.sprites.front_female} alt={pokemonData.sprites.front_female} />
-                        <img className="varicacoes-image" src={pokemonData.sprites.front_shiny} alt={pokemonData.sprites.front_shiny} />
-                        <img className="varicacoes-image" src={pokemonData.sprites.front_shiny_female} alt={pokemonData.sprites.front_shiny_female} />
+                            <h4>Variações</h4>
+                            <img className="varicacoes-image" src={pokemonData.sprites.front_female} alt={pokemonData.sprites.front_female} />
+                            <img className="varicacoes-image" src={pokemonData.sprites.front_shiny} alt={pokemonData.sprites.front_shiny} />
+                            <img className="varicacoes-image" src={pokemonData.sprites.front_shiny_female} alt={pokemonData.sprites.front_shiny_female} />
                         </div>
-                        
+
                         <h4>Movimentos</h4>
                         <div className="moves">
-                            {pokemonData.moves.map((move, index)=>(
+                            {pokemonData.moves.map((move, index) => (
                                 <p key={index}>{move.move.name}</p>
                             ))}
-                        </div>  
+                        </div>
                     </div>
 
                 </div>

@@ -19,7 +19,7 @@ export default function Home({ setPokemonData }) {
     const getPokemons = (newOffset = 0) => {
         const limit = 20
         let endpoints = []
-        for (let i = newOffset + 1; i < newOffset + limit; i++) {
+        for (let i = newOffset + 1; i <= newOffset + limit; i++) {
             endpoints.push(`https://pokeapi.co/api/v2/pokemon/${i}/`)
         }
         const response = axios.all(endpoints.map((endpoint) => axios.get(endpoint)))
