@@ -2,12 +2,6 @@ img{
     width: 25rem;
 }
 
-/* Estilos para o elemento <nav> */
-nav {
-    padding: 10px;
-    margin: 2rem 0 2rem 0;
-}
-
 /* Centralizar o conteúdo dentro do <nav> */
 nav div {
     display: flex;
@@ -22,29 +16,3 @@ nav form {
     margin: 5rem 0 0 1rem;
 }
 
-/* Estilos para o input de texto */
-nav input[type="text"] {
-    padding: 5px;
-    font-size: 18px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    margin-right: 10px; /* Espaço entre o input e o botão */
-}
-
-/* Estilos para o botão */
-nav button[type="submit"] {
-    padding: 5px 10px;
-    font-size: 18px;
-    color: white;
-    background-color: #2c72b8; /* Cor azul para o botão */
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-family: "Nunito", sans-serif;
- 
-}
-
-/* Mudança de cor ao passar o mouse sobre o botão */
-nav button[type="submit"]:hover {
-    background-color: #0056b3;
-}

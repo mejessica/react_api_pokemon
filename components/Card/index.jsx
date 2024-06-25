@@ -14,7 +14,7 @@ export default function Card({ name, image, type, onClick}) {
                 <div className="card-body">
                     <h5 className="card-title">{name}</h5>
                     <p className="card-text">{typesPokemons(type)}</p>
-                    <button className="btn btn-primary">Ver</button>
+                    <Button className="btn btn-primary">Ver</Button>
                 </div>
             </Div>
     )
@@ -32,4 +32,25 @@ export default function Card({ name, image, type, onClick}) {
     display: inline-block;
     margin-left: 6rem;
     transition: transform 0.5s;
-`
+    &:hover{
+    transform: scale(1.1);
+    }
+    `
+
+    const Button = styled.button`
+    display: inline-block;
+    padding: 5px 15px;
+    font-size: 1rem;
+    color: white;
+    background-color:#2c72b8; /* Cor azul para o botão */
+    border: none;
+    border-radius: 4px;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    font-family: "Nunito", sans-serif;  
+    &:hover{
+    background-color: #0056b3;
+    } 
+    `
+

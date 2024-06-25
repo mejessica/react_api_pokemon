@@ -14,6 +14,7 @@ export default function Home({ setPokemonData }) {
 
     useEffect(() => {
         getPokemons()
+        console.log('tenho que aparecer uma vez')
     }, [])
 
     const getPokemons = (newOffset = 0) => {
