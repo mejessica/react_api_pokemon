@@ -14,9 +14,9 @@ export default function Navbar({ filterPokemons, search }) {
 
             <div>
                 {!search ? (
-                <form>
-                    <Input type="text" onChange={(e)=>filterPokemons(e.target.value)}/>
-                    <Button type="submit">Search</Button>
+                <form onSubmit={filterPokemons}>
+                    <Input placeholder="qual é esse pokémon?" type="text" onChange={(e)=>filterPokemons(e.target.value)}/>
+                    <img style={{ width: '40px', height: '40px' }}  src="./public/images/pngwing.com.png" alt="" />
                 </form>
                 ): null}
             </div>
@@ -43,9 +43,14 @@ const Button = styled.button`
     }
 `
 const Input = styled.input`
-    padding: 5px;
-    font-size: 18px;
+    padding: 7px;
+    font-size: 20px;
     border: 1px solid #ccc;
     border-radius: 4px;
     margin-right: 10px; /* Espaço entre o input e o botão */
+    &::placeholder {
+    color: gray;
+    font-size:15px;
+    font-family: "Nunito", sans-serif
+    }
 `

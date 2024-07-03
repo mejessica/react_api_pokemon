@@ -35,15 +35,18 @@ export default function Home({ setPokemonData }) {
 
     const filterPokemons = (name) => {
         let filtered = []
-        if (name === "") {
+        if (name === '') {
+            filtered=[]
+            setPokemons(filtered)
             getPokemons()
+        }else{
+            axios.get(`https://pokeapi.co/api/v2/pokemon/${name}/`)
+        .then((res)=>{
+            filtered.push(res)
+            setPokemons(filtered)
+        })
+        .catch((err)=> console.log(err))
         }
-        for (var i in pokemons) {
-            if (pokemons[i].data.name.includes(name)) {
-                filtered.push(pokemons[i]);
-            }
-        }
-        setPokemons(filtered);
     }
 
 

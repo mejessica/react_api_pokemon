@@ -92,7 +92,7 @@ export default function Profile({ pokemonData }) {
                             <img className="varicacoes-image" src={pokemonData.sprites.front_shiny_female} alt={pokemonData.sprites.front_shiny_female} />
                         </div>
 
-                        <h4>Movimentos</h4>
+                        <h4>Ataques</h4>
                         <div className="moves">
                             {pokemonData.moves.map((move, index) => (
                                 <p key={index}>{move.move.name}</p>
