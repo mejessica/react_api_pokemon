@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import Navbar from '../components/Navbar';
 import axios from "axios";
 import './Profile.css'
 import { typesPokemons } from "../src/utils/handle";
 import { useNavigate } from "react-router-dom";
+import { ThemeContext} from "../src/contexts/theme-context"
 
 export default function Profile({ pokemonData }) {
     const [pokemon, setPokemon] = useState([])
@@ -42,12 +43,14 @@ export default function Profile({ pokemonData }) {
         return null
     }
 
+    const {theme} = useContext(ThemeContext)
+
     return (
-        <>
+        <div style={{color:theme.color, backgroundColor: theme.backgroundPage}}>
             <Navbar search />
             <div className="profile-container">
                 <h1 className="profile-title">{pokemonData.name}</h1>
-                <div className="profile-card">
+                <div className="profile-card" style={{backgroundColor: theme.background}}>
                     <img className="profile-image" src={pokemonData.sprites.front_default} alt={pokemonData.name} />
 
                     <div className="profile-details">
@@ -95,13 +98,13 @@ export default function Profile({ pokemonData }) {
                         <h4>Ataques</h4>
                         <div className="moves">
                             {pokemonData.moves.map((move, index) => (
-                                <p key={index}>{move.move.name}</p>
+                                <p style={{backgroundColor: theme.moves}} key={index}>{move.move.name}</p>
                             ))}
                         </div>
                     </div>
 
                 </div>
             </div>
-        </>
+        </div>
     )
 }

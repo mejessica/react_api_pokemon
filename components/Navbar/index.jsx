@@ -1,13 +1,15 @@
-import React from "react";
+import React, {useContext} from "react";
 import { useNavigate } from "react-router-dom"
 import "../Navbar/index.css"
 import styled from 'styled-components'
+import { ThemeContext} from "../../src/contexts/theme-context"
 
 export default function Navbar({ filterPokemons, search }) {
     const navigate = useNavigate()
+    const {theme} = useContext(ThemeContext)
     return (
 
-        <Nav>
+        <Nav style={{backgroundColor: theme.backgroundPage}}>
             <div className="img">
                 <img src="../public/images/pokemon.png" cursor="pointer" onClick={()=>navigate("/")}/>
             </div>

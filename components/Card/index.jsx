@@ -1,13 +1,19 @@
-import React from "react";
+import React, {useContext} from "react";
 import "../Card/index.css"
 import { typesPokemons } from "../../src/utils/handle";
-import styled from 'styled-components'
+import styled from 'styled-components';
+import { tag } from '../../src/utils/tag'
 
-export default function Card({ name, image, type, onClick}) {
+import { ThemeContext, themes } from "../../src/contexts/theme-context"
+
+export default function Card({ id, name, image, type, onClick}) {
+
+    const {theme} = useContext(ThemeContext)
 
     return (
        
-            <Div onClick={onClick}>
+            <Div onClick={onClick} style={{color: theme.color, backgroundColor: theme.background}}>
+                <p className="tag">#{tag(id)}</p>
                 <div className="img">
                     <img src={image} />
                 </div>
@@ -21,8 +27,9 @@ export default function Card({ name, image, type, onClick}) {
 
 }
 
+
     const Div = styled.div`
-    border: 1px solid #ccc;
+    border: 1px solid none;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;

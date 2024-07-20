@@ -7,20 +7,20 @@ li{
     flex-direction: column;
     align-items: center;
     padding: 20px;
-    background-color: #f9f9f9;
+    /* background-color: #f9f9f9; */
 }
 
 .profile-title {
     text-transform: capitalize;
     font-size: 2.5rem;
-    color: #333;
+    /* color: #333; */
 }
 
 .profile-card {
     display: flex;
     flex-direction: row;
     align-items: center;
-    background: #fff;
+    /* background: #fff; */
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 20px;
@@ -58,26 +58,26 @@ li{
 }
 
 .profile-table th {
-    background-color: #f2f2f2;
+    /* background-color: #f2f2f2; */
     font-weight: bold;
 }
 
-.profile-table td {
+/* .profile-table td {
     background-color: #fff;
-}
+} */
 
-.profile-table tr:hover {
+/* .profile-table tr:hover {
     background-color: #f1f1f1;
-}
+} */
 
 .profile-details p {
     font-size: 1.2rem;
     margin: 5px 0;
 }
 
-.profile-details strong {
+/* .profile-details strong {
     color: #555;
-}
+} */
 
 .varicacoes-image{
     width: 20%;
@@ -101,7 +101,7 @@ h4{
     padding: 5px;
     margin: 3px;
     font-size: 15px;
-    background-color: #ddd;
+    /* background-color: #ddd; */
     border-radius: 15px;    
 }
 

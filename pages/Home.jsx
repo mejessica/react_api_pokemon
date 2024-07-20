@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import Navbar from '../components/Navbar';
 import Card from "../components/Card";
 import axios from "axios";
 import '../pages/Home.css'
 import { useNavigate, useParams } from "react-router-dom";
-
+import { ThemeContext} from "../src/contexts/theme-context"
 
 export default function Home({ setPokemonData }) {
     const [pokemons, setPokemons] = useState([])
@@ -14,7 +14,6 @@ export default function Home({ setPokemonData }) {
 
     useEffect(() => {
         getPokemons()
-        console.log('tenho que aparecer uma vez')
     }, [])
 
     const getPokemons = (newOffset = 0) => {
@@ -36,16 +35,16 @@ export default function Home({ setPokemonData }) {
     const filterPokemons = (name) => {
         let filtered = []
         if (name === '') {
-            filtered=[]
+            filtered = []
             setPokemons(filtered)
             getPokemons()
-        }else{
+        } else {
             axios.get(`https://pokeapi.co/api/v2/pokemon/${name}/`)
-        .then((res)=>{
-            filtered.push(res)
-            setPokemons(filtered)
-        })
-        .catch((err)=> console.log(err))
+                .then((res) => {
+                    filtered.push(res)
+                    setPokemons(filtered)
+                })
+                .catch((err) => console.log(err))
         }
     }
 
@@ -55,19 +54,23 @@ export default function Home({ setPokemonData }) {
         navigate(`/profile/${pokemonData.name}`);
     };
 
-    const randomMore = () =>{
-       getPokemons(offset)
+    const randomMore = () => {
+        getPokemons(offset)
     }
 
+    const {theme} = useContext(ThemeContext)
+
     return (
-        <>
+        <div style={{backgroundColor: theme.backgroundPage}}>
             <Navbar filterPokemons={filterPokemons} />
             {pokemons.map((pokemon, key) => (
-                <Card name={pokemon.data.name} image={pokemon.data.sprites.front_default} key={key} type={pokemon.data.types} onClick={() => handleClick(pokemon.data)} />
+                <Card id={pokemon.data.id} name={pokemon.data.name} image={pokemon.data.sprites.front_default} key={key} type={pokemon.data.types} onClick={() => handleClick(pokemon.data)} />
             ))}
             <div className="button">
-            <button className="carregar" onClick={randomMore}>More pokemons</button>
+                <button className="carregar" onClick={randomMore}>more pokemons</button>
             </div>
-        </>
+        </div>
     )
 }
+
+   

@@ -21,7 +21,6 @@
 .card-title {
     font-size: 1.25rem;
     margin-bottom: 10px;
-    color: #333;
     margin-top: 0;
     
 }
@@ -30,7 +29,13 @@
 .card-text {
     font-size: 1em;
     margin-bottom: 20px;
-    color: #555;
+}
+
+.tag{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Nunito", sans-serif;
 }
 
 
