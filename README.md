@@ -29,7 +29,7 @@ O projeto foi feito em React para consolidar o aprendizado. Foi usado Styled Com
 - Clone na sua máquina
 ```git clone https://github.com/mejessica/react_api_pokemon```
 - Navegue até o repositório
-- ```cd nome-do-repo```
+```cd nome-do-repo```
 - Instale dependências
 ```npm install```
 - Rode na sua máquina
