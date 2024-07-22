@@ -23,3 +23,16 @@ O projeto foi feito em React para consolidar o aprendizado. Foi usado Styled Com
 - mudança de tema
 
   ![Pokedéx (2)](https://github.com/user-attachments/assets/070b1343-5da1-4dc7-b953-ddfd8a8de088)
+
+### Rode na sua máquina
+
+- Clone na sua máquina
+```git clone https://github.com/mejessica/react_api_pokemon```
+- Navegue até o repositório
+- Instale dependências
+```npm install```
+- Rode na sua máquina
+```npm run dev```
+
+
+
