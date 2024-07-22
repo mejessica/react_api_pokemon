@@ -37,7 +37,7 @@ export default function Card({ id, name, image, type, onClick}) {
     margin: 20px auto; 
     background-color: white;
     display: inline-block;
-    margin-left: 5rem;
+    margin: 5rem;
     transition: transform 0.3s;
     &:hover{
     transform: scale(1.1);

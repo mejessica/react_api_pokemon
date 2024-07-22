@@ -9,6 +9,7 @@ import { ThemeContext} from "../src/contexts/theme-context"
 export default function Home({ setPokemonData }) {
     const [pokemons, setPokemons] = useState([])
     const [offset, setOffset] = useState(0)
+    const [isFiltered, setIsFiltered] = useState(false);
 
     const navigate = useNavigate()
 
@@ -36,9 +37,11 @@ export default function Home({ setPokemonData }) {
         let filtered = []
         if (name === '') {
             filtered = []
+            setIsFiltered(false);
             setPokemons(filtered)
             getPokemons()
         } else {
+            setIsFiltered(true);
             axios.get(`https://pokeapi.co/api/v2/pokemon/${name}/`)
                 .then((res) => {
                     filtered.push(res)
@@ -66,9 +69,11 @@ export default function Home({ setPokemonData }) {
             {pokemons.map((pokemon, key) => (
                 <Card id={pokemon.data.id} name={pokemon.data.name} image={pokemon.data.sprites.front_default} key={key} type={pokemon.data.types} onClick={() => handleClick(pokemon.data)} />
             ))}
-            <div className="button">
-                <button className="carregar" onClick={randomMore}>more pokemons</button>
-            </div>
+             {!isFiltered && (
+                <div className="button">
+                    <button className="carregar" onClick={randomMore}>more pokemons</button>
+                </div>
+            )}
         </div>
     )
 }
