@@ -8,11 +8,11 @@
     border-radius: 4px;
     cursor: pointer;
     font-family: "Nunito", sans-serif;
-  
 }
 
 .button{
-    margin: 5rem 0;
+    margin: 0;
+    padding: 5rem 0;
     width: 100%;
     display: flex;
     justify-content: center;

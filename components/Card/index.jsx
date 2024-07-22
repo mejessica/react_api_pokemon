@@ -33,12 +33,12 @@ export default function Card({ id, name, image, type, onClick}) {
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;
-    width: 200px; /* Largura máxima do cartão */
-    margin: 20px auto; /* Centraliza o cartão horizontalmente */
+    width: 200px; 
+    margin: 20px auto; 
     background-color: white;
     display: inline-block;
-    margin-left: 6rem;
-    transition: transform 0.5s;
+    margin-left: 5rem;
+    transition: transform 0.3s;
     &:hover{
     transform: scale(1.1);
     }

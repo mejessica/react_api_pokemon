@@ -28,7 +28,6 @@ export default function Navbar({ filterPokemons, search }) {
 
 const Nav = styled.nav`
     padding: 10px;
-    margin: 2rem 0 2rem 0;
 `
 
 const Button = styled.button`

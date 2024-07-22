@@ -49,7 +49,7 @@ export default function Profile({ pokemonData }) {
         <div style={{color:theme.color, backgroundColor: theme.backgroundPage}}>
             <Navbar search />
             <div className="profile-container">
-                <h1 className="profile-title">{pokemonData.name}</h1>
+            <h1 className="profile-title">{pokemonData.name}</h1>
                 <div className="profile-card" style={{backgroundColor: theme.background}}>
                     <img className="profile-image" src={pokemonData.sprites.front_default} alt={pokemonData.name} />
 
@@ -72,11 +72,6 @@ export default function Profile({ pokemonData }) {
                                     <td></td>
                                     <td colSpan="2">{typesPokemons(types)}</td>
                                 </tr>
-                                {/* <tr>
-                                    <th scope="row"><strong>Abilities:</strong></th>
-                                    <td></td>
-                                    <td colSpan="2"> {pokemonData.abilities.map((ability) => ability.ability.name).join(", ")} </td>
-                                </tr> */}
                                 <tr>
                                     <th scope="row"><strong>Abilities:</strong></th>
                                     <td></td>

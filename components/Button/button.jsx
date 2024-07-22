@@ -1,5 +1,5 @@
 import  React, { useContext } from "react"
-import { ThemeContext } from "../../src/contexts/theme-context"
+import { ThemeContext, themes } from "../../src/contexts/theme-context"
 import '../Button/button.css'
 
 export const Button = (props) =>{
@@ -8,7 +8,7 @@ export const Button = (props) =>{
 
     return (
         <button className="theme" {...props} 
-        style={{color: theme.color, backgroundColor: theme.background}}
+        style={(theme === themes.light ? themes.dark : themes.light)}
         />
     )
 }

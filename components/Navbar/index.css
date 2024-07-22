@@ -7,13 +7,14 @@ nav div {
     display: flex;
     justify-content: center;
     align-items: center;
+    padding-top: 5rem;
 }
 
 /* Estilos para o formulário */
 nav form {
     display: flex;
     align-items: center;
-    margin: 5rem 0 0 1rem;
+    margin: 1rem 0 5rem 0; 
 }
 
 

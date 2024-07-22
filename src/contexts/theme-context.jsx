@@ -4,13 +4,12 @@ export const themes = {
     light: {
         color: '#000000',
         background: '#ffffff',
-        moves: '#ddd'
+        moves: '#ddd',
     },
     dark: {
         color: '#eeedec',
-        background: '#4f4f4f',
-        backgroundPage: '#808080',
-        moves: '#363636'
+        background: '#353432',
+        moves: '#363636',
     }
 }
 
@@ -20,11 +19,11 @@ export const ThemeProvider = (props) => {
 
     const [theme, setTheme] = useState(themes.light)
     return (
-        <div  style={{backgroundColor: themes.backgroundPage}}>
+       
             <ThemeContext.Provider value={{ theme, setTheme }} >
                 {props.children}
             </ThemeContext.Provider>
-        </div>
+   
 
     )
 }
