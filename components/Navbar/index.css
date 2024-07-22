@@ -1,5 +1,6 @@
 img{
     width: 25rem;
+    cursor:pointer;
 }
 
 /* Centralizar o conteúdo dentro do <nav> */

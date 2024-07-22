@@ -1,8 +1,23 @@
-# React + Vite
+# Projeto React e Pokemon API
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Projeto com o intuito de colocar em prática o aprendizado em react 
 
-Currently, two official plugins are available:
+## Linguagens
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- React
+- CSS
+- ContextApi
+- Pokemon API
+- Styled Component
+
+### Resumo do projeto
+O projeto foi feito em React para consolidar o aprendizado. Foi usado Styled Component para a estilização e ContextApi para a mudança dos temas. A API utlizada foi o Pokemon API. 
+
+### Aprendizado e dificuldade
+ Aprendi muito sobre como o react funciona de acordo com minhas dificuldades. 
+
+### O que há no site? 
+- Pesquisa de pokémons por nome e por número
+- detalhes do pokémon como: peso, altura, habilidades, movimentos, tipo e descrição, variações. 
+- renderização de mais pokémons
+- mudança de tema
