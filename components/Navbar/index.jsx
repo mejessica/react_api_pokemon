@@ -11,14 +11,14 @@ export default function Navbar({ filterPokemons, search }) {
 
         <Nav style={{backgroundColor: theme.backgroundPage}}>
             <div className="img">
-                <img src="src/assets/images/pokemon.png" cursor="pointer" onClick={()=>navigate("/")}/>
+                <img src="/images/pokemon.png" cursor="pointer" onClick={()=>navigate("/")}/>
             </div>
 
             <div>
                 {!search ? (
                 <form onSubmit={filterPokemons}>
                     <Input placeholder="qual é esse pokémon?" type="text" onChange={(e)=>filterPokemons(e.target.value)}/>
-                    <img style={{ width: '40px', height: '40px' }}  src="src/assets/images/pngwing.com.png" alt="" />
+                    <img style={{ width: '40px', height: '40px' }}  src="/images/pngwing.com.png" alt="" />
                 </form>
                 ): null}
             </div>
