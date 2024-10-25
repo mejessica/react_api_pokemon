@@ -1,8 +1,7 @@
-import React from "react";
 import { useContext } from "react"
-import { ThemeContext, themes } from "../../src/contexts/theme-context"
-import videoBgLight from '../../src/assets/backgroundLight.mp4'
-import videoBgDark from '../../src/assets/backgroundDark.mp4'
+import { ThemeContext, themes } from "../../contexts/theme-context"
+import videoBgLight from '../../assets/backgroundLight.mp4'
+import videoBgDark from '../../assets/backgroundDark.mp4'
 import styled from 'styled-components';
 
 const Main = () => {

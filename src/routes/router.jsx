@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Home from './pages/Home';
-import Profile from './pages/Profile';
+import Home from '../pages/Home';
+import Profile from '../pages/Profile';
 
 export default function Router(){
     const [pokemonData, setPokemonData] = useState()

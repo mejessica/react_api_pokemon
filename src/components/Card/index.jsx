@@ -1,10 +1,10 @@
-import React, {useContext} from "react";
+import {useContext} from "react";
 import "../Card/index.css"
-import { typesPokemons } from "../../src/utils/handle";
+import { typesPokemons } from "../../utils/handle";
 import styled from 'styled-components';
-import { tag } from '../../src/utils/tag'
+import { tag } from '../../utils/tag'
 
-import { ThemeContext, themes } from "../../src/contexts/theme-context"
+import { ThemeContext } from "../../contexts/theme-context"
 
 export default function Card({ id, name, image, type, onClick}) {
 

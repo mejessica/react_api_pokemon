@@ -1,15 +1,13 @@
-import React, { useEffect, useState, useContext } from "react";
+import { useEffect, useState, useContext } from "react";
 import Navbar from '../components/Navbar';
 import axios from "axios";
 import './Profile.css'
-import { typesPokemons } from "../src/utils/handle";
+import { typesPokemons } from "../utils/handle";
 import { useNavigate } from "react-router-dom";
-import { ThemeContext} from "../src/contexts/theme-context"
+import { ThemeContext} from "../contexts/theme-context"
 
 export default function Profile({ pokemonData }) {
     const [pokemon, setPokemon] = useState([])
-    console.log(pokemon)
-
     const { name, types } = pokemonData || {}
 
     const navigate = useNavigate()
@@ -25,13 +23,8 @@ export default function Profile({ pokemonData }) {
             const abilities = pokemonData.abilities.map((ability) => ability.ability.name)
             for (const ability of abilities) {
                 const response = await axios.get(`https://pokeapi.co/api/v2/ability/${ability}`);
-                console.log(response)
-                const description = response.data.flavor_text_entries;
-                // pokemon.push(description);
                 pokemon.push(response)
             }
-
-            // console.log(pokemon)
             setPokemon(pokemon)
         };
 

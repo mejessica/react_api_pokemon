@@ -1,10 +1,10 @@
-import React, { useEffect, useState, useContext } from "react";
+import { useEffect, useState, useContext } from "react";
 import Navbar from '../components/Navbar';
 import Card from "../components/Card";
 import axios from "axios";
-import '../pages/Home.css'
-import { useNavigate, useParams } from "react-router-dom";
-import { ThemeContext} from "../src/contexts/theme-context"
+import './Home.css'
+import { useNavigate} from "react-router-dom";
+import { ThemeContext} from "../contexts/theme-context"
 
 export default function Home({ setPokemonData }) {
     const [pokemons, setPokemons] = useState([])
@@ -35,22 +35,27 @@ export default function Home({ setPokemonData }) {
 
     const filterPokemons = (name) => {
         let filtered = []
-        if (name === '') {
-            filtered = []
-            setIsFiltered(false);
-            setPokemons(filtered)
-            getPokemons()
-        } else {
-            setIsFiltered(true);
-            axios.get(`https://pokeapi.co/api/v2/pokemon/${name}/`)
-                .then((res) => {
-                    filtered.push(res)
-                    setPokemons(filtered)
-                })
-                .catch((err) => console.log(err))
-        }
+            if (name === '') {
+                filtered = []
+                setError(false)
+                setIsFiltered(false);
+                setPokemons(filtered)
+                getPokemons()
+            } else {
+                setIsFiltered(true);
+                axios.get(`https://pokeapi.co/api/v2/pokemon/${name}/`)
+                    .then((res) => {
+                        filtered.push(res)
+                        setError(false)
+                        setPokemons(filtered)
+                    })
+                    .catch((err) => {
+                        setError(err);
+                    });
+            }
     }
 
+    const [error, setError] = useState(null);
 
     const handleClick = (pokemonData) => {
         setPokemonData(pokemonData)
@@ -66,6 +71,11 @@ export default function Home({ setPokemonData }) {
     return (
         <div style={{backgroundColor: theme.backgroundPage}}>
             <Navbar filterPokemons={filterPokemons} />
+            {error && (
+                <div className="error">
+                    <span>Não existe resultado para essa busca</span>
+                </div>
+            )}
             {pokemons.map((pokemon, key) => (
                 <Card id={pokemon.data.id} name={pokemon.data.name} image={pokemon.data.sprites.front_default} key={key} type={pokemon.data.types} onClick={() => handleClick(pokemon.data)} />
             ))}

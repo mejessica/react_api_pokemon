@@ -1,5 +1,5 @@
 import { useContext } from "react"
-import { ThemeContext, themes } from "../../src/contexts/theme-context"
+import { ThemeContext, themes } from "../../contexts/theme-context"
 import React from "react"
 import { Button } from "../Button/button"
 
