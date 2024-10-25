@@ -1,6 +1,6 @@
-import  { useContext } from "react"
-import { ThemeContext, themes } from "../../contexts/theme-context"
-import './button.css'
+import  React, { useContext } from "react"
+import { ThemeContext, themes } from "../../src/contexts/theme-context"
+import '../Button/button.css'
 
 export const Button = (props) =>{
 
